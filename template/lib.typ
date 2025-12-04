@@ -150,7 +150,7 @@
   )
 
   set page(
-    margin: (top: 3.5cm, bottom: 2.5cm, left: 3.5cm, right: 2.5cm),
+    margin: (top: 3cm, bottom: 3cm, left: 3cm, right: 3cm),
     header:
       grid(
         columns: (1fr, 1fr),
