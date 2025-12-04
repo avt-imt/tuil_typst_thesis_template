@@ -5,8 +5,7 @@
   date,
   title-font,
   language,
-  logo-left,
-  logo-right,
+  logo,
   many-authors,
   supervisor,
   title,
@@ -14,9 +13,6 @@
   university,
   university-location,
   date-format,
-  show-confidentiality-statement,
-  confidentiality-marker,
-  university-short,
   page-grid,
 ) = {
 
@@ -32,14 +28,14 @@
 
   // ---------- Logo(s) ---------------------------------------
 
-  if logo-left != none  {
-    place(
-      top + center,
-      dy: -4 * page-grid,
-      box(logo-left, height: 3.5 * page-grid)
-    )
-    linebreak()
-  }
+
+  place(
+    top + center,
+    dy: -4 * page-grid,
+    box(logo, height: 3.5 * page-grid)
+  )
+  linebreak()
+
 
   text(fill: luma(80), size: 11pt, "Fakultät für Elektrotechnik und Informationstechnik")
   linebreak()

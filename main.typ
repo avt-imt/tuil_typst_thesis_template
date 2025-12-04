@@ -9,13 +9,9 @@
   ),
   type-of-thesis: "Bachelorarbeit",
   bibliography: bibliography("refs.bib"),
-  date: datetime.today(),
+  date: datetime.today(), // or datetime(year: 2025, month: 10,  day: 4) to fix the date
   language: "en", // en, de
   supervisor: (professor: "Steve Göring", university: "Prof. Dr. Daniel Düsentrieb"),
-  university: "Technische Universität Ilmenau",
-  university-location: "Ilmenau",
-  city: "Ilmenau",
-  university-short: "TU Ilmenau",
   abstract: "hello",
   abstract_de: "deutscher abstract"
 )
@@ -34,6 +30,11 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+test
+hello
+
+blubber
 
 @raake2014quality
 

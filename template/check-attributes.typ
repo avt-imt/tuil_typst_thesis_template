@@ -2,9 +2,7 @@
   title,
   authors,
   language,
-  confidentiality-marker,
   type-of-thesis,
-  show-confidentiality-statement,
   show-declaration-of-authorship,
   show-table-of-contents,
   show-abstract,
@@ -16,11 +14,8 @@
   date,
   city,
   bibliography,
-  glossary,
   bib-style,
-  logo-left,
-  logo-right,
-  university-short,
+  logo,
   math-numbering,
   ignored-link-label-keys-for-highlighting,
 ) = {
@@ -36,7 +31,6 @@
   // Check type of boolean attributes
 
   let boolean-attributes = (
-    show-confidentiality-statement: show-confidentiality-statement,
     show-table-of-contents: show-table-of-contents,
     show-declaration-of-authorship: show-declaration-of-authorship,
     show-abstract: show-abstract,
@@ -54,7 +48,6 @@
   let string-attributes = (
     university: university,
     university-location: university-location,
-    university-short: university-short,
   )
 
   // required string attributes
@@ -77,40 +70,6 @@
   }
 
 
-  // Check validity of confidentialty-marker attributes
-
-  if (type(confidentiality-marker) != none) {
-    if (
-      type(confidentiality-marker) != dictionary or "display" not in confidentiality-marker or type(confidentiality-marker.display) != bool
-    ) {
-      panic("Confidentiality marker is invalid. Specify a dictionary in the 'confidentiality-marker' attribute of the template containing a 'display' attribute with a boolean value.")
-    }
-  }
-
-
-  // Check type of attributes containing `length`-values
-
-  let length-attributes = ()
-
-  if ("offset-x" in confidentiality-marker) {
-    length-attributes.insert("offset-x (confidentiality-marker)", confidentiality-marker.offset-x)
-  }
-  if ("offset-y" in confidentiality-marker) {
-    length-attributes.insert("offset-y (confidentiality-marker)", confidentiality-marker.offset-y)
-  }
-  if ("size" in confidentiality-marker) {
-    length-attributes.insert("size (confidentiality-marker)", confidentiality-marker.size)
-  }
-  if ("title-spacing" in confidentiality-marker) {
-    length-attributes.insert("title-spacing (confidentiality-marker)", confidentiality-marker.title-spacing)
-  }
-
-  for (key, attribute) in length-attributes {
-    if (type(attribute) != length) {
-      panic("Attribute '" + key + "' is invalid. Specify a length in the '" + key + "' attribute of the template.")
-    }
-  }
-
 
   // Check consistency of all attributes related to `authors`
 
@@ -120,13 +79,6 @@
 
   let max-authors = 6
 
-  if (
-    (type-of-thesis != none and type-of-thesis != "") or (
-      confidentiality-marker.display == true
-    )
-  ) {
-    max-authors -= 2
-  }
 
 
 
@@ -166,8 +118,7 @@
   // Checkt type and content of image-attributes
 
   let image-attributes = (
-    logo-left: logo-left,
-    logo-right: logo-right,
+    logo: logo
   )
 
   for (key, attribute) in image-attributes {
@@ -176,11 +127,6 @@
     }
   }
 
-
-  // Check type of `glossary`
-  if (glossary != none and type(glossary) != array) {
-    panic("Type of `glossary` is invalid. It must be an array of arrays")
-  }
 
 
   // Check availability of `bibliography`

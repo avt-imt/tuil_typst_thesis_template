@@ -1,6 +1,5 @@
 #import "@preview/codelst:2.0.2": *
 #import "@preview/hydra:0.6.1": hydra
-#import "@preview/glossarium:0.5.6": make-glossary, register-glossary, print-glossary, gls, glspl
 #import "locale.typ": *
 #import "titlepage.typ": *
 #import "declaration-of-authorship.typ": *
@@ -13,31 +12,24 @@
   title: none,
   authors: (:),
   language: none,
-  confidentiality-marker: (display: false),
   type-of-thesis: none,
-  show-confidentiality-statement: false,
   show-declaration-of-authorship: true,
   show-table-of-contents: true,
   show-abstract: true,
   abstract: none,
   abstract_de: none,
   appendix: none,
-  confidentiality-statement-content: none,
   declaration-of-authorship-content: none,
-  titlepage-content: none,
-  university: none,
-  university-location: none,
-  university-short: none,
-  city: none,
+  university: "Technische Universität Ilmenau",
+  university-location: "Ilmenau",
+  city: "Ilmenau",
   supervisor: (:),
   date: none,
   date-format: "[day].[month].[year]",
   bibliography: none,
-  glossary: none,
   bib-style: "din-1505-2-alphanumeric.csl",
   math-numbering: "(1)",
-  logo-left: image("logo.svg"),
-  logo-right: none,
+  logo: image("logo.svg"),
   ignored-link-label-keys-for-highlighting: (),
   body,
 ) = {
@@ -46,9 +38,7 @@
     title,
     authors,
     language,
-    confidentiality-marker,
     type-of-thesis,
-    show-confidentiality-statement,
     show-declaration-of-authorship,
     show-table-of-contents,
     show-abstract,
@@ -60,14 +50,12 @@
     date,
     city,
     bibliography,
-    glossary,
     bib-style,
-    logo-left,
-    logo-right,
-    university-short,
+    logo,
     math-numbering,
     ignored-link-label-keys-for-highlighting,
   )
+
 
   // ---------- Fonts & Related Measures ---------------------------------------
 
@@ -94,30 +82,19 @@
   // math numbering
   set math.equation(numbering: math-numbering)
 
-  // initialize `glossarium`
-  // CAVEAT: all `figure` show rules must come before this (see `glossarium` docs)
-  show: make-glossary
-
-  // register the glossary passed in `glossary`
-  if (glossary != none) {
-    register-glossary(glossary)
-  }
 
   // show links in dark blue
   show link: set text(fill: blue.darken(40%))
 
   // ========== TITLEPAGE ========================================
 
-  if (titlepage-content != none) {
-    titlepage-content
-  } else {
-    titlepage(
+
+  titlepage(
       authors,
       date,
       heading-font,
       language,
-      logo-left,
-      logo-right,
+      logo,
       many-authors,
       supervisor,
       title,
@@ -125,12 +102,8 @@
       university,
       university-location,
       date-format,
-      show-confidentiality-statement,
-      confidentiality-marker,
-      university-short,
       page-grid,
-    )
-  }
+  )
   counter(page).update(1)
 
   // ---------- Page Setup ---------------------------------------
@@ -308,12 +281,7 @@
 
   set heading(numbering: "A.1")
   counter(heading).update(0)
-  // ---------- Glossary  ---------------------------------------
 
-  if (glossary != none) {
-    heading(level: 1, GLOSSARY.at(language))
-    print-glossary(glossary)
-  }
 
   // ---------- Appendix (other contents) ---------------------------------------
 
