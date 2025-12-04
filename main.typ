@@ -10,7 +10,7 @@
   type-of-thesis: "Bachelorarbeit",
   bibliography: bibliography("refs.bib"),
   date: datetime.today(),
-  language: "de", // en, de
+  language: "en", // en, de
   supervisor: (professor: "Steve Göring", university: "Prof. Dr. Daniel Düsentrieb"),
   university: "Technische Universität Ilmenau",
   university-location: "Ilmenau",
@@ -37,7 +37,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 @raake2014quality
 
+- A
+- B
+
+
+
 #figure(
   image("imgs/03.png"),
   caption: [A nice figure!],
-)
+) <fig:test>
+
+@fig:test is amazing

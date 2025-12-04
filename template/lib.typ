@@ -150,7 +150,7 @@
   )
 
   set page(
-    margin: (top: 4cm, bottom: 3cm, left: 4cm, right: 3cm),
+    margin: (top: 3.5cm, bottom: 2.5cm, left: 3.5cm, right: 2.5cm),
     header:
       grid(
         columns: (1fr, 1fr),
@@ -252,7 +252,7 @@
     context{
       if in-body.get() {
         v(page-grid * 3)
-        text("Kapitel " + counter(heading).display(),size: h1-size)
+        text(CHAPTER.at(language) + " " + counter(heading).display(),size: h1-size)
         linebreak()
         v(0.5em)
         text(               // heading text on separate line

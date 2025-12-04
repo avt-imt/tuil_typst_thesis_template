@@ -19,13 +19,13 @@
 )
 
 #let TITLEPAGE_PROF_SUPERVISOR = (
-  "de": "Verantwortlicher Professor",
-  "en": "Professor",
+  "de": "Betreuung:",
+  "en": "Supervision: ",
 )
 
 #let TITLEPAGE_SUPERVISOR = (
-  "de": "Wissenschaftlicher Betreuer",
-  "en": "Supervisor",
+  "de": "",
+  "en": "",
 )
 
 #let TOC_FIGS = (
@@ -37,6 +37,10 @@
   "en": "List of Tables",
 )
 
+#let CHAPTER = (
+  "de": "Kapitel",
+  "en": "Chapter",
+)
 
 #let DECLARATION_OF_AUTHORSHIP_TITLE = (
   "de": "Erklärung",
