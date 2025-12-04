@@ -34,7 +34,7 @@
   date-format: "[day].[month].[year]",
   bibliography: none,
   glossary: none,
-  bib-style: "ieee",
+  bib-style: "din-1505-2-alphanumeric.csl",
   math-numbering: "(1)",
   logo-left: image("logo.svg"),
   logo-right: none,
